@@ -1,0 +1,40 @@
+
+
+h1, h3, span {
+    margin: 0; 
+    font-size: 3 rem; 
+}
+
+#city {
+    font-size: 4rem; 
+}
+
+
+#temperature {
+    font-size: 2rem;
+    display: grid; 
+    grid-template-columns: auto auto; 
+    justify-content: center; 
+    margin-left: 2rem; 
+}
+
+.weather-app {
+    max-width: 550px; 
+    height: 100vh; 
+    border: 1 px solid black; 
+    margin: 0 auto;
+    display: grid; 
+    grid-template-rows: 20% 80%; 
+    text-align: center; 
+    padding: 25px 5px; 
+}
+
+
+
+.left {
+    max-width: 550px; 
+    height: 100vh; 
+    border: 1 px solid black; 
+    margin: 0 auto;
+
+}

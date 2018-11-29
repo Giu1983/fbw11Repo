@@ -1,38 +1,67 @@
-const appKey = "18d71c93190f1063c2db66d2695ae9fa";
+let APPID = "18d71c93190f1063c2db66d2695ae9fa"; 
+let temp
+let loc
+let icon
+let humidity
+let wind
+let direction
 
-let searchBtn = document.getElementById("searchBtn");
-let searchInput = document.getElementById("search-txt");
-let cityNnm = document.getElementById("city-name"); 
-let icn = document.getElementById("icn"); 
-let temperature = document.getElementById("temp"); 
-let humidity = document.getElementById("humidity-div"); 
 
-searchBtn.addEventListener("click", findWeatherDetails); 
-searchInput.addEventListener("keyup", enterFunction); 
+function updateByZip(zip){
+    let url = "https://openweathermap.org/city" + "zip" + zip + "APPID" + APPID; 
+    sendRequest(url); 
+}
 
-function enterFunction (event) {
-    if(event.key === "Enter") {
-        findWeatherDetails(); 
+function sendRequest(url){
+    let xmlhttp = new XMLHttpRequest(); 
+    xml.http.onreadystatechange = function() {
+        if(xmlhttp.readyState == xmlhttp.status == 200)
+        let data = JSON. parse(xmlhttp.responseText); 
+        let weather = {}; 
+        weather.icon = data.weather[0].id; 
+        weather.humidity = data.main.humidity; 
+        weather.wind = data.wind.speed; 
+        weather.direction = data.wind.deg; 
+        weather.loc = data.name;   
+        weather.temp = data.main.temp; 
+        update(weather); 
 
     }
 }
 
-function myResponse(response) {
-    let jsonObject = JSON.parse(response); 
-    cityName.innerHTML = jsonObject.name; 
-    icon.src = "http://openweathermap.org/img/w/"+ jsonObject.weather[0].icon + ".png"; 
-    temperature.innerHTML = jsonObject.main.humidity + "%"; 
+xmlhttp.open("GET", url, true){
+    xmlhttp.send(); 
 }
 
-function httpRequestAsync(url, callback)
-{
-    console.log("hello"); 
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = () => {
-        if(httpRequest.readyState == 4 && httpRequest.status == 200)
-        callback(httpRequest.responseText); 
+function update(weather){
+    wind.innerHTML = weather.wind; 
+    direction.innerHTML = weather.direction; 
+    humidity.innerHTML = weather.temp; 
+    loc.innerHTML = weather.loc; 
+    temp.innerHTML = weather.temp; 
+    //inserire tra le virgolette il link dell'immagine di riferimento
+    icon.src = "" + weather.icon + "png"; 
+    console.log(icon.src); 
+}
 
-    }
-    httpRequest.open("GET", url, true); //true for asynchronous
-    httpRequest.send(); 
+window.onload = function (){
+    temp = document.getElementById("temperature"); 
+    loc = document.getElementById("location"); 
+    icon = document.getElementById("icon"); 
+    humidity = document.getElementById("humidity"); 
+    wind = document.getElementById("wind"); 
+    direction = document.getElementById("direction");
+    
+  updateByZip(); 
+
+    let weather = (); 
+    weather.wind = 3.5; 
+    weather.direction = "N"; 
+    weather.humidity = "35"; 
+    weather.loc = "Berlin"; 
+    weather.temp = "0"; 
+    weather.icon = "200"; 
+    
+
+    update(weather); 
 }

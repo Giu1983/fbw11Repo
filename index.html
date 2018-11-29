@@ -1,36 +1,30 @@
- <!Doctype html>
- <html lang="en">
-     <head>
-         <meta charset="UTF-8">
-         <title>Weather Application</title>
-         <link rel="stylesheet" href="main.css">
-        
-     </head>
-     <body>
-         <div class="container">
-             <header class="search">
-                <input type="text" placeholder="Enter City Name" id="search-txt">
-                <a id="searchBtn" href="#"><i class="fas fa search"></i></a>
-            </div> 
-            </header>
-         <main id="main">
-             <div class="city-icn">
-                 <div class="city-icn-holder">
-                     <div id="city-name"></div>
-                     <img src="" alt="" id="icon">
-                 </div>
-
-             </div>
-             <div class="temperature">
-                 <div id="temp"></div>
-             </div>
-             <div class="humidity">
-                 <div id="humidity-div"></div>
-             </div>
-         </main>
-         <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
-
-         <script src="main.js"></script>
-
-     </body>
- </html>
+<!Doctype html>
+<html lang="en">
+<head>
+    <title>
+        Weather App</title>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <div class="weather-app">
+        <h2 id="city">Berlin</h2>
+        <div class="left">
+        <div class="temperature"><span id="temperature"><br>0</span><br>degree</div>
+        <div class="location"><span id="location">Location<br>Berlin</span></div>
+        </div>
+        <div class="middle"></div>
+        <h1 id="temp">0</h1>
+        <div class="right">
+        <div class="top">
+            <img id="icon" width="75px"src="" alt="">
+        </div>
+        <div class="bottom">
+            <div class="humidity"> 
+                <img height="16px"src="" alt="">
+                <span id="wind">0</span>mph<span id="direction">N</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
